@@ -36,3 +36,91 @@
             font-size: 16px;
             border-radius: 5px;
         }
+        button:hover {
+            background-color: #45a049;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        .info-text {
+            text-align: center;
+            font-size: 14px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+
+<h2>🏆 Таблица победителей SR 🏆</h2>
+
+<p class="info-text">Данные обновлены на 01.01.25 на 12:00 по UTC</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Место</th>
+            <th>Ник</th>
+            <th>Баллы</th>
+            <th>Приз</th>
+        </tr>
+    </thead>
+    <tbody id="winnersTable">
+        <!-- Данные будут вставлены через JavaScript -->
+    </tbody>
+</table>
+
+<button id="updateBtn">Обновить таблицу</button>
+
+<script>
+    // Массив данных о победителях с призами (100 USD для всех)
+    const winners = [
+        { place: 1, nickname: "Иван Иванов", points: 1000, prize: "100 USD" },
+        { place: 2, nickname: "Петр Петров", points: 950, prize: "100 USD" },
+        { place: 3, nickname: "Сергей Сергеев", points: 900, prize: "100 USD" },
+        { place: 4, nickname: "Алексей Алексеев", points: 850, prize: "100 USD" },
+        { place: 5, nickname: "Дмитрий Дмитриев", points: 800, prize: "100 USD" },
+        { place: 6, nickname: "Николай Николаев", points: 780, prize: "100 USD" },
+        { place: 7, nickname: "Мария Мариева", points: 750, prize: "100 USD" },
+        { place: 8, nickname: "Анна Антонова", points: 720, prize: "100 USD" },
+        { place: 9, nickname: "Юлия Юрьева", points: 700, prize: "100 USD" },
+        { place: 10, nickname: "Екатерина Екатерина", points: 680, prize: "100 USD" },
+        { place: 11, nickname: "Роман Романов", points: 650, prize: "100 USD" },
+        { place: 12, nickname: "Виктор Викторов", points: 640, prize: "100 USD" },
+        { place: 13, nickname: "Ирина Ирина", points: 620, prize: "100 USD" },
+        { place: 14, nickname: "Ольга Ольгова", points: 600, prize: "100 USD" },
+        { place: 15, nickname: "Тимур Тимуров", points: 580, prize: "100 USD" },
+        { place: 16, nickname: "Артур Артуров", points: 560, prize: "100 USD" },
+        { place: 17, nickname: "Наталья Натальева", points: 540, prize: "100 USD" },
+        { place: 18, nickname: "Светлана Светлова", points: 520, prize: "100 USD" },
+        { place: 19, nickname: "Валентина Валентинова", points: 500, prize: "100 USD" },
+        { place: 20, nickname: "Андрей Андреев", points: 480, prize: "100 USD" }
+    ];
+
+    // Функция для обновления таблицы победителей
+    function updateTable() {
+        const tableBody = document.getElementById("winnersTable");
+        tableBody.innerHTML = "";  // Очищаем текущую таблицу
+        winners.forEach(winner => {
+            const row = document.createElement("tr");
+            row.innerHTML = `
+                <td>${winner.place}</td>
+                <td>${winner.nickname}</td>
+                <td>${winner.points}</td>
+                <td>${winner.prize}</td>
+            `;
+            tableBody.appendChild(row);
+        });
+    }
+
+    // Обработчик кнопки "Обновить"
+    document.getElementById("updateBtn").addEventListener("click", function() {
+        updateTable(); // Обновляем таблицу при клике
+    });
+
+    // Инициализация таблицы при загрузке
+    updateTable();
+</script>
+
+</body>
+</html>
