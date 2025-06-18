@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Таблица победителей</title>
+    <title>Таблица победителей SR</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -36,64 +36,3 @@
             font-size: 16px;
             border-radius: 5px;
         }
-        button:hover {
-            background-color: #45a049;
-        }
-    </style>
-</head>
-<body>
-
-<h1>🏆 Таблица победителей 🏆</h1>
-
-<table>
-    <thead>
-        <tr>
-            <th>Место</th>
-            <th>Ник</th>
-            <th>Баллы</th>
-            <th>Приз</th>
-        </tr>
-    </thead>
-    <tbody id="winnersTable">
-        <!-- Данные будут вставлены через JavaScript -->
-    </tbody>
-</table>
-
-<button id="updateBtn">Обновить таблицу</button>
-
-<script>
-    // Массив данных о победителях с призами (100 USD для всех)
-    const winners = [
-        { place: 1, nickname: "Иван Иванов", points: 1000, prize: "100 USD" },
-        { place: 2, nickname: "Петр Петров", points: 950, prize: "100 USD" },
-        { place: 3, nickname: "Сергей Сергеев", points: 900, prize: "100 USD" },
-        { place: 4, nickname: "Алексей Алексеев", points: 850, prize: "100 USD" }
-    ];
-
-    // Функция для обновления таблицы победителей
-    function updateTable() {
-        const tableBody = document.getElementById("winnersTable");
-        tableBody.innerHTML = "";  // Очищаем текущую таблицу
-        winners.forEach(winner => {
-            const row = document.createElement("tr");
-            row.innerHTML = `
-                <td>${winner.place}</td>
-                <td>${winner.nickname}</td>
-                <td>${winner.points}</td>
-                <td>${winner.prize}</td>
-            `;
-            tableBody.appendChild(row);
-        });
-    }
-
-    // Обработчик кнопки "Обновить"
-    document.getElementById("updateBtn").addEventListener("click", function() {
-        updateTable(); // Обновляем таблицу при клике
-    });
-
-    // Инициализация таблицы при загрузке
-    updateTable();
-</script>
-
-</body>
-</html>
